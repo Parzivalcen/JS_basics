@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset="utf-8">
+ <title>Function start</title>
+ <style>
+  .msgBox {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 242px;
+   background: #eee;
+  }
+
+  .msgBox p {
+   line-height: 1.5;
+   padding: 10px 20px;
+   padding-left: 82px;
+   background-position: 25px center;
+   background-repeat: no-repeat; 
+   color: #333;
+  }
+
+  .msgBox button {
+   background: none;
+   border: none;
+   position: absolute;
+   top: 0;
+   right: 0;
+   font-size: 1.1rem;
+   color: #aaa;
+  }
+
+  .icon-msg{
+   position: absolute;
+   top: 0;
+   right: 50%;
+   border: transparent;
+   background: transparent;
+  }
+ </style>
+</head>
+
+<body>
+
+ <!-- 
+  HTML
+  -->
+ <button class="btn-war">Display warning message box</button>
+ <button class="btn-chat">Display chat message box</button>
+
+ <script>
+  // Select the HTML element
+  function displayMessage(msgText, msgType) {
+   const html = document.querySelector('html');
+
+   // create a div with class msgBox and added to html as child
+   const panel = document.createElement('div');
+   panel.setAttribute('class', 'msgBox');
+   html.appendChild(panel);
+
+   // create a message and added to panel as child
+   const msg = document.createElement('p');
+   msg.textContent = msgText;
+   panel.appendChild(msg);
+
+   // create a closeBtn and added to panel as child
+   const closeBtn = document.createElement('button');
+   closeBtn.textContent = 'X';
+   panel.appendChild(closeBtn);
+
+
+   //set Icon according to msgType
+   if (msgType === 'chat'){
+    msg.style.backgroundImage = 'url(./icons/chat.png)';
+   }else if(msgType === 'warning'){
+    msg.style.backgroundImage = 'url(./icons/warning.png)';
+   }else{
+    msg.style.paddingLeft = '20px'
+   }
+
+   // Close the panel
+   closeBtn.addEventListener('click', () => panel.parentNode.removeChild(panel));   
+  }
+  // grab btn for displaying message from HTML
+   const btnW = document.querySelector('.btn-war');
+   const btnC = document.querySelector('.btn-chat');
+   // add click listener to HTML display button. 
+   btnW.addEventListener('click', ( ) => displayMessage('Careful', 'warning') )
+   btnC.addEventListener('click', ( ) => displayMessage('Hi', 'chat') )
+   
+
+ </script>
+</body>
+
+</html>

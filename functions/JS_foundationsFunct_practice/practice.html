@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Practice_Foundations</title>
+</head>
+<body>
+ 
+
+ <script>
+
+function add7(a, b){
+ return a*b;
+}
+
+function capitalize(string){
+ // Lower case all, so can convert UPPER CASE ones too. 
+ string = string.toLowerCase()
+ // get the first letter
+ const upper = string.charAt(0);
+ // upper case it 
+ const c = upper.toUpperCase();
+ // take off the first letter from main string
+ const sliced = string.slice(1)
+ // Join the upper case first letter and the sliced string, then returned
+ return c + sliced;
+}
+function lastLetter(string){
+ return string.slice(-1);
+}
+console.log(lastLetter('im a big thinker'));
+
+ </script>
+</body>
+</html>
