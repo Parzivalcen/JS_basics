@@ -3,9 +3,11 @@
   // write anotherone that is rotated
 // make a for loop that loops 5 times
   // // print a line of 5 #s
-  // make a for loop that loop 7 times and push one # to an array everytime
-  // substract half the number of loops and convert it to absolute values
-  // count the number of empty spaces, no the #'s
+  // make a for loop that loop 7 times 
+  // make another for loop that ;
+    // substract half the number of loops and convert it to absolute values
+    // push one # to an array everytime
+    // count the number of empty spaces, no the #'s
 // add line brake "\n" inside first for loop
 
 // print a descending number sequence, that start from half the number of loops, and when it reachs zero it goes back up, by counting up
