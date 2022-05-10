@@ -2,25 +2,20 @@
 
 // if year if divisible for 100 and 400, yes is leap
 // if year is only divisible by 100, false, is not leap
-// check if year is divisible by 4, yes if leap 
+// check if year is divisible by 4, yes if leap
 // else return false
 
-
-const leapYears = function(year) {
-  if(year % 100 == 0 && year % 400 == 0){
+const leapYears = function (year) {
+  if (year % 100 == 0 && year % 400 == 0) {
     return true;
-    console.log(true)
-  }else if(year % 100 == 0 ){
-    console.log(false);
+  } else if (year % 100 == 0) {
     return false;
-  }else  if(year % 4 == 0){
-    console.log(true, 'Is leap');
+  } else if (year % 4 == 0) {
     return true;
-  }else{
+  } else {
     return false;
   }
-
 };
-leapYears(700);
+leapYears(1985);
 // Do not edit below this line
 module.exports = leapYears;

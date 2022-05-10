@@ -5,10 +5,8 @@
 // and selet title of each object in the array
 
 const getTheTitles = function (obj) {
-  obj = obj.map((item) => {
-    return item.title;
-  });
-  return obj;
+  titles = obj.map((book) => book.title);
+  return titles;
 };
 
 const books = [

@@ -5,10 +5,10 @@
 // get the age of the oldest and current argument
 // compare them to which is older
 const findTheOldest = function (people) {
-  return people.reduce((oldest, currentPerson) => {
-    oldestAge = getAge(oldest.yearOfDeath, oldest.yearOfBirth);
-    currentAge = getAge(currentPerson.yearOfDeath, currentPerson.yearOfBirth);
-    return oldestAge < currentAge ? currentPerson : oldest;
+  return people.reduce((oldestPerson, currentPerson) => {
+    oldest = getAge(oldestPerson.yearOfDeath, oldestPerson.yearOfBirth);
+    current = getAge(currentPerson.yearOfDeath, currentPerson.yearOfBirth);
+    return oldest < current ? currentPerson : oldestPerson;
   });
 };
 getAge = function (Death, Birth) {

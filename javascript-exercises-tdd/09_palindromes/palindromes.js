@@ -5,13 +5,10 @@
 // compare it to the first sentence
 
 const palindromes = function (sentence) {
-  sentence = sentence.toLowerCase();
-  let regex = /[.,:!?\s]/g;
-  sentence = sentence.replace(regex, "");
-  reversed = sentence.split("").reverse().join("");
-  return sentence === reversed ? true : false;
-
-  // arr.filter((letter) =>
+  const p = /[.?!`':;/,\s]/g;
+  sentence = sentence.toLowerCase().replace(p, "");
+  const reversed = sentence.split("").reverse().join("");
+  return reversed === sentence ? true : false;
 };
 console.log(palindromes("A car, a man, a maraca.!"));
 // Do not edit below this line

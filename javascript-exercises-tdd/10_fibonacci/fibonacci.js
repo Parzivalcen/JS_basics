@@ -5,18 +5,15 @@
 // make a for loop pushing the sum of the two previous number to the array
 
 const fibonacci = function (n) {
+  n = +n; // converts to numbers if it is string.
   if (n < 0) {
     return "OOPS";
   }
-  let fib = [];
-  fib[0] = 0;
-  fib[1] = 1;
-
-  for (let i = 2; i <= 30; i++) {
-    fib.push(fib[i - 1] + fib[i - 2]);
+  if (n < 2) {
+    return n;
   }
-  return fib[n];
+  return fibonacci(n - 1) + fibonacci(n - 2);
 };
-console.log(fibonacci(20));
+console.log(fibonacci(7));
 // Do not edit below this line
 module.exports = fibonacci;
