@@ -1,16 +1,28 @@
-const calculator = () => ({
-  add: (a, b) => a + b,
-  sub: (a, b) => a - b,
-  mult: (a, b) => a * b,
-  div: (a, b) => a / b,
-});
-console.log(calculator().sub(4, 5));
+////// DECLARING MODULE DEPENDECIES //////
+const documentMock = (() => ({
+  querySelector: (selector) => ({
+    innerHTML: null,
+  }),
+}))();
 
-const calculator2 = (() => {
-  const add = (a, b) => a + b;
-  const sub = (a, b) => a - b;
-  const mult = (a, b) => a * b;
-  const div = (a, b) => a / b;
-  return { add, sub, mult, div };
-})();
-console.log(calculator2.add(2, 3));
+const Formatter = ((doc) => {
+  const timesRun = [];
+  const log = (message) => console.log(`[${Date.now()}] logger: ${message}`);
+
+  const makeUpperCase = (text) => {
+    log("Making Upper Case");
+    return text.toUpperCase();
+  };
+  /*
+  This wont run in a server side console, only in a browser
+  We to add a check
+  */
+  const writeToDOM = (selector, message) => {
+    doc.querySelector(selector).innerHTML = message;
+  };
+  return { makeUpperCase, writeToDOM };
+})(document || documentMock);
+
+Formatter.writeToDOM(".module", "Hello, greetings from  the under World");
+Formatter.makeUpperCase("Hello, greetings from  Planet of REDDES");
+Formatter.makeUpperCase("Hello, greetings from  Weird people");
