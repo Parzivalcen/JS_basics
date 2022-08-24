@@ -1,12 +1,26 @@
-console.log(factorial(5))
-
+let allAreLessThanSeven = all([1,3,6], function(num){
+  return num < 7
+})
+// non recursive factorial
 // sumRange(3);
 
-function factorial(n){
-  if(n===1) return 1;
-  return  n * factorial(n-1);
-}
+function all(arr, callBack){
+  let copy = arr.slice() || copy;
 
-// Take a base and a exponent number as an arguments
-// If e === 0 return 1;
-// else 
+  if(copy.length === 0) return true
+  if(callBack(copy[0])){
+    copy.shift();
+    return all(copy, callBack);
+  }else{
+    return false;
+  }
+}
+console.log(allAreLessThanSeven);
+
+// make a copy of the original array
+// if copy.length === 0, return true
+// if(callBack(copy(0)))
+//    remove first item of the arr
+//    return all(copy, callback)
+// return false;
+
