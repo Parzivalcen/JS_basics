@@ -1,10 +1,10 @@
-console.log(power(3, 3))
+console.log(factorial(5))
 
 // sumRange(3);
 
-function power(b, e){
-  if(e===0) return 1;
-  return  (b * power(b, e -1));
+function factorial(n){
+  if(n===1) return 1;
+  return  n * factorial(n-1);
 }
 
 // Take a base and a exponent number as an arguments
