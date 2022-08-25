@@ -1,26 +1,16 @@
-let allAreLessThanSeven = all([1,3,6], function(num){
-  return num < 7
-})
+let six = productOfArray([1,2,3]) // 6
+let sixty = productOfArray([1,2,3,10]) // 60
 // non recursive factorial
 // sumRange(3);
-
-function all(arr, callBack){
+console.log(six, sixty);
+function productOfArray(arr){
   let copy = arr.slice() || copy;
 
-  if(copy.length === 0) return true
-  if(callBack(copy[0])){
-    copy.shift();
-    return all(copy, callBack);
-  }else{
-    return false;
-  }
+  if(copy.length === 0) return 1;
+  return copy.shift() * productOfArray(copy);
 }
-console.log(allAreLessThanSeven);
 
-// make a copy of the original array
-// if copy.length === 0, return true
-// if(callBack(copy(0)))
-//    remove first item of the arr
-//    return all(copy, callback)
-// return false;
+
+// if arr.length == 0, return
+// return arr.shift * productOfArray(arr);
 
