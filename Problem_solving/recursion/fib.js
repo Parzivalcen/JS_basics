@@ -33,9 +33,8 @@ function fibs(n){
 
 
 function normalFib(n){
-  if(n===0)return 0;
-  if(n===1)return 1;
-  return normalFib(n-1) + normalFib(n-2);
+
+  return n-1 + n-2;
 }
 
 
