@@ -1,45 +1,19 @@
-let nestedObject = {
-  data: {
-      info: {
-          stuff: {
-              thing: {
-                  moreStuff: {
-                      magicNumber: 44,
-                      something: 'foo2'
-                  }
-              }
-          }
-      }
-  }
-}
-// non recursive factorial
-// sumRange(3);
-let seven = totalInts([[[5], 3], 0, 2, ['foo'], [], [4, [5, 6]]]); // 7
 
-console.log(seven);
+console.log(replicate(3, 5)) // [5, 5, 5]
+console.log(replicate(1, 69)) // [69]
+console.log(replicate(-2, 6)) // []
 
-function totalInts(arr){
-  if(arr.length===0) return 0;
-  let count = 0;
-  let first = arr.shift();
 
-  if(Array.isArray(first)){
-    console.log('arr', first);
-    count += totalInts(first);
-  }
-  if(Number.isInteger(first)){
-    console.log('n', first);
-    count ++;
-  }
-
-  return count + totalInts(arr);
+function replicate(r, a){
+  if(r<=0) return [];
+  return [a].concat(replicate(r - 1, a));
 }
 
-// base case; if arr.length == 0, return 0;
-// count = 0;
-// get first elements of arr every call, first = arr.shift();
-// if first is array
-//    count += totalints(first);
-// if first is num
-//    count += 1
-// return count += totalInts(arr);
+// if arr.length == 0, return 0
+// let sum = 0
+// for according to array length
+//    if(arr[i] is array)
+//      sum += sumSquares(arr[i])
+//    if(arr[i]is num)
+//      sum += arr[i]**2;
+// return sum
