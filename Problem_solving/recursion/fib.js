@@ -1,4 +1,4 @@
-console.log(fibsRec(8));
+console.log(fibsRec(8), normalFib(7));
 console.log(fibs(8));
 
 
@@ -27,9 +27,16 @@ function fibs(n){
 // while(arr length < n)
 //    arr.push(fib)
 //    fib0 = fib1
-//    fib1 = fib0
+//    fib1 = fib
 //    fib = fib0 + fib1
 // return fib
+
+
+function normalFib(n){
+  if(n===0)return 0;
+  if(n===1)return 1;
+  return normalFib(n-1) + normalFib(n-2);
+}
 
 
 
