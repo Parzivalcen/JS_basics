@@ -10,8 +10,8 @@ class linkedList {
     return console.log(node.data);
   
   }
-  append(value){
 
+  append(value){
     const newNode = new node(value);
     if(this.head === null) return this.head = newNode;
     let lastNode = this.head;
@@ -19,12 +19,22 @@ class linkedList {
       lastNode = lastNode.next;
     }
     lastNode.next = newNode;
-
   }
+
   prepend(value){
     const head = new node(value);
     head.next = this.head;
     this.head = head;
+  }
+
+  size(){
+    let counter = 0;
+    let node = this.head;
+    while(node.next){
+      counter ++
+      node = node.next
+    }
+    return counter;
   }
 }
 
@@ -56,4 +66,7 @@ console.log(listRandom);
 
 list.append('hi');
 list.printListValues();
+console.log(list.size());
+
+
 // list.printListValues();
