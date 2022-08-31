@@ -30,11 +30,58 @@ class linkedList {
   size(){
     let counter = 0;
     let node = this.head;
-    while(node.next){
+    while(node){
       counter ++
       node = node.next
     }
-    return counter;
+    return `list size ${counter}`;
+  }
+
+  listHead(){
+    return `list head: ${this.head.data}`;
+  }
+
+  tail(){
+    let lastNode = this.head;
+
+    while(lastNode.next !== null){
+      lastNode = lastNode.next
+    }
+    return `tail: ${lastNode.data}`
+  }
+
+  at(n){
+    let node = this.head;
+    for(let i = 0; i < n; i++){
+      node = node.next;
+    }
+    return `node at index ${n} is ${node.data}`;
+  }
+  
+  pop(){
+    if(!this.head){
+      return null;
+    }
+
+    // if there is only one node
+    if(!this.head.next){
+      this.head = null;
+      return;
+    }
+
+    let previous = this.head;
+    let last = this.head.next;
+
+    while(last.next !== null){
+      previous = last;
+      last = last.next;
+    }
+
+    return previous.next = null;
+  }
+
+  contains(value){
+    
   }
 }
 
@@ -59,14 +106,14 @@ const list = new linkedList(a);
 
 const listRandom = new linkedList(random);
 
-listRandom.append('hi');
-listRandom.printListValues();
-console.log(listRandom);
+// listRandom.append('hi');
+// listRandom.printListValues();
+// console.log(listRandom);
 
 
 list.append('hi');
+console.log(list.pop());
 list.printListValues();
-console.log(list.size());
 
 
 // list.printListValues();
