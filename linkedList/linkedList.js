@@ -81,7 +81,23 @@ class linkedList {
   }
 
   contains(value){
-    
+    let node = this.head;
+    while(node.next!== null){
+      if(value === node.data) return true;
+      node = node.next;
+    }
+    return false
+  }
+
+  find(value){
+    let node = this.head;
+    let index = 0;
+    while(node.next !== null){
+      if(value === node.data) return index;
+      node = node.next;
+      index ++
+    }
+    return null;
   }
 }
 
@@ -112,7 +128,7 @@ const listRandom = new linkedList(random);
 
 
 list.append('hi');
-console.log(list.pop());
+console.log(list.find(3));
 list.printListValues();
 
 
