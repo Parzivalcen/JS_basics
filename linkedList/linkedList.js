@@ -99,6 +99,15 @@ class linkedList {
     }
     return null;
   }
+  toString(){
+    let str = '';
+    let node = this.head;
+    while(node){
+      str += `(${node.data})->`
+      node = node.next;
+    }
+    return str += 'null';
+  }
 }
 
 class node{
@@ -124,12 +133,12 @@ const listRandom = new linkedList(random);
 
 // listRandom.append('hi');
 // listRandom.printListValues();
-// console.log(listRandom);
+console.log(listRandom.toString());
 
 
 list.append('hi');
-console.log(list.find(3));
 list.printListValues();
+console.log(list.toString());
 
 
 // list.printListValues();
