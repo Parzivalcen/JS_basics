@@ -55,7 +55,7 @@ class linkedList {
     for(let i = 0; i < n; i++){
       node = node.next;
     }
-    return `node at index ${n} is ${node.data}`;
+    return node.data;
   }
   
   pop(){
@@ -108,6 +108,16 @@ class linkedList {
     }
     return str += 'null';
   }
+  insertAt(value, index){
+    let newNode = new node(value);
+    let tmp = this.head;
+    for(let i = 0; i < index; i++){
+      tmp = tmp.next;
+    }
+    tmp = newNode;
+
+
+  }
 }
 
 class node{
@@ -137,6 +147,7 @@ console.log(listRandom.toString());
 
 
 list.append('hi');
+list.insertAt('lol', 2);
 list.printListValues();
 console.log(list.toString());
 
