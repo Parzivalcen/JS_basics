@@ -34,11 +34,11 @@ class linkedList {
       counter ++
       node = node.next
     }
-    return `list size ${counter}`;
+    return counter;
   }
 
   listHead(){
-    return `list head: ${this.head.data}`;
+    return this.head;
   }
 
   tail(){
@@ -47,7 +47,7 @@ class linkedList {
     while(lastNode.next !== null){
       lastNode = lastNode.next
     }
-    return `tail: ${lastNode.data}`
+    return lastNode.data
   }
 
   at(n){
@@ -55,7 +55,7 @@ class linkedList {
     for(let i = 0; i < n; i++){
       node = node.next;
     }
-    return node.data;
+    return node;
   }
   
   pop(){
@@ -111,13 +111,27 @@ class linkedList {
   insertAt(value, index){
     let newNode = new node(value);
     let tmp = this.head;
-    for(let i = 0; i < index; i++){
-      tmp = tmp.next;
-    }
-    tmp = newNode;
 
+    for(let i = 1; i < index; i++){
+      if(tmp.next != null) tmp = tmp.next
+    }
+    newNode.next = tmp.next;
+    tmp.next = newNode;
 
   }
+  removeAt(index){
+    let tmp = this.head;
+    let ahead = this.head.next;
+    for(let i = 1; i < index; i++){
+      if(tmp.next !== null){
+        tmp = tmp.next;
+        ahead = ahead.next;
+      } 
+        
+    }
+    tmp.next = ahead.next;
+  }
+
 }
 
 class node{
@@ -148,7 +162,8 @@ console.log(listRandom.toString());
 
 list.append('hi');
 list.insertAt('lol', 2);
-list.printListValues();
+list.removeAt(2);
+// list.printListValues();
 console.log(list.toString());
 
 
