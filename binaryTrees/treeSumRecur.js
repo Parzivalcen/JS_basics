@@ -21,9 +21,13 @@ c.right = f;
 depthFirst(a);
 console.log(depthFirst(a));
 
+// Assume correctness of your recursive calls
+// Here we take all the children of the left node and right node, sum them, then we added them to our initial node value
+
 
 function depthFirst(node){
   if(node === null) return 0;
+  //      3       +             17        +             5         =   25
   return node.val + depthFirst(node.left) + depthFirst(node.right);
 }
 

@@ -99,6 +99,7 @@ class linkedList {
     }
     return null;
   }
+
   toString(){
     let str = '';
     let node = this.head;
@@ -108,6 +109,7 @@ class linkedList {
     }
     return str += 'null';
   }
+  
   insertAt(value, index){
     let newNode = new node(value);
     let tmp = this.head;
@@ -162,9 +164,10 @@ console.log(listRandom.toString());
 
 list.append('hi');
 list.insertAt('lol', 2);
-list.removeAt(2);
+list.listHead();
 // list.printListValues();
 console.log(list.toString());
+console.log(list.listHead());
 
 
 // list.printListValues();
