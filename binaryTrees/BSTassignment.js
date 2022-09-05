@@ -60,11 +60,28 @@ class Tree {
   }
   find(value, root = this.root){
     if(root === null) return root;
-    if(root.data === value) return root; 
+    if(root.data===value) return root;
+    return this.find(value, root.left) || this.find(value, root.right);
+  }
+  levelOrder(root = this.root){
+    if(root === null) return root;
+    const queue = [root];
+    const treeData = [];
+    while(queue.length > 0){
+      const current = queue.shift();
+      treeData.push(current.data);
+      if(current.left) queue.push(current.left);
+      if(current.right) queue.push(current.right);
+    }
+    return treeData;
 
-    return this.find(value, root.right) || this.find(value, root.left);
-
-    // return root;
+  }
+  InOrder(root = this.root, values = []){
+    if(root === null) return [];
+    this.InOrder(root.left, values);
+    values.push(root.data);
+    this.InOrder(root.right, values);
+    return values;
   }
 }
 let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
@@ -77,7 +94,8 @@ console.log(dataTree.minValue())
 depthFirstValues(dataTree.root);
 prettyPrint(dataTree.root);
 
-console.log(dataTree.find(9))
+console.log(dataTree.InOrder())
+
 // prettyPrint(dataTree.root);
 
 
