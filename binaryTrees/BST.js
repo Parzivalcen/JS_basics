@@ -27,8 +27,6 @@ function sortedArrayToBST (arr, start, end) {
 let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 data.sort((a,b)=>a-b);
 data = [... new Set(data)];
-const dataStart = data[0];
-const dataEnd = data.at(-1);
 const end = data.length-1;
 const binaryTree = sortedArrayToBST(data, 0, end)
 

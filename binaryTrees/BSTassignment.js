@@ -22,14 +22,72 @@ class Tree {
     return root;
     
   }
+  insert(value, root = this.root){
+    if(root === null) return root = new Node(value);
+
+    if(value > root.data) root.right = this.insert(value, root.right);
+    if(value < root.data) root.left = this.insert(value, root.left);
+
+    return root;
+  }
+
+  delete(value, root = this.root){
+    if(root === null) return root;
+
+    if(value > root.data) root.right = this.delete(value, root.right);
+    else if(value < root.data) root.left = this.delete(value, root.left);
+
+    //if root is the same as value
+    else{
+      if(root.right === null) return root.left;
+      else if (root.left === null) return root.right;
+
+      root.data = this.minValue(root.right);
+      root.right = this.delete(root.data, root.right);
+    }
+
+    return root;
+  }
+
+  minValue(root = this.root){
+    let node = root;
+    let tmp = node.data;
+    while(node.left !== null){
+      tmp = node.left.data;
+      node = node.left;
+    }
+    return tmp;
+  }
+  find(value, root = this.root){
+    if(root === null) return root;
+    if(root.data === value) return root; 
+
+    return this.find(value, root.right) || this.find(value, root.left);
+
+    // return root;
+  }
 }
 let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 const dataTree = new Tree(data);
 
-console.log(dataTree.root)
+dataTree.insert(10);
+console.log(dataTree.minValue())
+
 depthFirstValues(dataTree.root);
 prettyPrint(dataTree.root);
+
+console.log(dataTree.find(9))
+// prettyPrint(dataTree.root);
+
+
+
+
+
+
+
+
+// HELPERS
 
 function depthFirstValues (root){
   if(root === null) return [];
