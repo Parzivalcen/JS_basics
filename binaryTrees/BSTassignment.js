@@ -76,6 +76,7 @@ class Tree {
     return treeData;
 
   }
+  // In Order, Pre Order and Post Order Traversals
   InOrder(root = this.root, values = []){
     if(root === null) return [];
     this.InOrder(root.left, values);
@@ -83,6 +84,33 @@ class Tree {
     this.InOrder(root.right, values);
     return values;
   }
+  preOrder(root = this.root, values = []){
+    if(root === null) return [];
+    values.push(root.data);
+    this.preOrder(root.left, values);
+    this.preOrder(root.right, values);
+    return values;
+  }
+  postOrder(root = this.root, values = []){
+    if (root === null) return [];
+
+    this.postOrder(root.left, values);
+    this.postOrder(root.right, values);
+    values.push(root.data);
+    return values;
+  }
+  height(root = this.root){
+    if(root === null) return -1;
+    else{
+      let leftHeight = this.height(root.left);
+      let rightHeight = this.height(root.right);
+
+      if(leftHeight > rightHeight) return leftHeight+1;
+      else return rightHeight+1;
+    }
+    
+  }
+
 }
 let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
@@ -94,7 +122,7 @@ console.log(dataTree.minValue())
 depthFirstValues(dataTree.root);
 prettyPrint(dataTree.root);
 
-console.log(dataTree.InOrder())
+console.log(dataTree.height())
 
 // prettyPrint(dataTree.root);
 
