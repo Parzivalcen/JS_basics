@@ -110,19 +110,44 @@ class Tree {
     }
     
   }
+  depth(node = this.root){
+    if(node === null) return -1;
+    else{
+      let leftHeight = this.height(node.left);
+      let rightHeight = this.height(node.right);
 
+      if(leftHeight > rightHeight) return leftHeight+1;
+      else return rightHeight+1;
+    }
+  }
+
+  isBalanced(root = this.root){
+    const depthRight = this.depth(root.right);
+    const depthLeft = this.depth(root.left)
+    const balanceOp = Math.abs(depthRight - depthLeft);
+    if(balanceOp === 1 || balanceOp === 0) return true;
+    return false;
+  }
+  rebalance(){
+    const values = this.InOrder(this.root);
+    return this.root = this.buildTree(values, 0, values.length - 1);
+  }
 }
 let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 const dataTree = new Tree(data);
 
 dataTree.insert(10);
+dataTree.insert(15);
 console.log(dataTree.minValue())
 
 depthFirstValues(dataTree.root);
 prettyPrint(dataTree.root);
 
-console.log(dataTree.height())
+console.log(dataTree.isBalanced())
+dataTree.rebalance()
+prettyPrint(dataTree.root);
+console.log(dataTree.isBalanced())
 
 // prettyPrint(dataTree.root);
 
