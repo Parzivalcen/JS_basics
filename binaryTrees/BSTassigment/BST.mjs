@@ -132,24 +132,19 @@ class Tree {
     const values = this.InOrder(this.root);
     return this.root = this.buildTree(values, 0, values.length - 1);
   }
+
+  prettyPrint  (node = this.root, prefix = '', isLeft = true) {
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
+    }
+    console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+    }
+  }
 }
-let data = [1, 7, 4, 23, 8, 9, 4, 3, 5, 7, 9, 67, 6345, 324];
 
-const dataTree = new Tree(data);
-
-dataTree.insert(10);
-dataTree.insert(15);
-console.log(dataTree.minValue())
-
-depthFirstValues(dataTree.root);
-prettyPrint(dataTree.root);
-
-console.log(dataTree.isBalanced())
-dataTree.rebalance()
-prettyPrint(dataTree.root);
-console.log(dataTree.isBalanced())
-
-// prettyPrint(dataTree.root);
+export {Node, Tree}
 
 
 
