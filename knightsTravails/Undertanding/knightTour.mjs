@@ -39,13 +39,13 @@ function knightMatrix (){
 
 // check if move is inside board
 function isSafe(x, y, matrix){
-  return (x >= 0 && y >= 0 && x < 8 && y < 8 && matrix[x][y] === -1 )
+  return (x >= 0 && y >= 0 && x < 8 && y < 8 && matrix[x][y] === -1 );
 }
 
 function knightTraverse(x, y, movementsCount, matrix, xMoves, yMoves){
   let k, nextX, nextY;
 
-  if(movementsCount === N * N) return true
+  if(movementsCount === N * N) return true;
 
   for(k = 0; k < 8; k++){
     nextX = x + xMoves[k];

@@ -9,7 +9,7 @@ class cell{
 
 // check if x, y are inside board
 function isSafe(x, y){
-  return (x >= 1 && x<8 && y>=1 && y < 8)
+  return (x >= 1 && x<8 && y>=1 && y < 8);
 }
 
 // Minimun n of steps to reach target with BFS
@@ -18,7 +18,7 @@ function minSteps(knightPos, targetPos){
   const xMoves = [2, 1, -1, -2, -2, -1, 1, 2];
   const yMoves = [1, 2, 2, 1, -1, -2, -2, -1];
 
-  let node = new cell(knightPos[0], knightPos[1], null)
+  let node = new cell(knightPos[0], knightPos[1], null);
   const queue = [node];
 
   // create the board
@@ -72,10 +72,10 @@ function getPath(node){
   while(queue.length > 0){
     const current = queue.shift();
     path.unshift([current.x, current.y]);
-    if(current.parent) queue.push(current.parent)
+    if(current.parent) queue.push(current.parent);
   }
   return path;
 }
 
-console.log(minSteps([3, 3], [4, 3]));
+console.log(minSteps([0, 0], [1,2]));
 

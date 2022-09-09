@@ -1,0 +1,15 @@
+{
+  "name": "knightstravails",
+  "version": "1.0.0",
+  "description": "In this problem I relied on Breath First Search algorithms (BFS) to find the shortest path and also to print the steps that the knight followed to reach the target position.",
+  "main": "knightTravails.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.23.0"
+  }
+}
